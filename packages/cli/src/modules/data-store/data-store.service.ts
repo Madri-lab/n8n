@@ -179,7 +179,7 @@ export class DataStoreService {
 		return true;
 	}
 
-	async getManyAndCount(options: DataStoreListOptions) {
+	async getManyAndCount(options?: DataStoreListOptions) {
 		return await this.dataStoreRepository.getManyAndCount(options);
 	}
 

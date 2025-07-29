@@ -35,8 +35,12 @@ export class DataStoreRepository extends Repository<DataStoreEntity> {
 		const query = this.createQueryBuilder('dataStore');
 
 		this.applySelections(query);
-		this.applyFilters(query, options.filter);
-		this.applySorting(query, options.sortBy);
+		if (options.filter) {
+			this.applyFilters(query, options.filter);
+		}
+		if (options.sortBy) {
+			this.applySorting(query, options.sortBy);
+		}
 		this.applyPagination(query, options);
 
 		return query;
